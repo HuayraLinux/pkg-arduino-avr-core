@@ -2,4 +2,5 @@
 
 find . -iname "*.elf" -delete
 find . -iname "*.hex" -delete
-find . -iname "*.a" -delete
+find . -iname "*.a"   -delete
+find . -iname "*.lst" -delete
