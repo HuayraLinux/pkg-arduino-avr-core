@@ -1,0 +1,21 @@
+From: Ignacio Losiggio <iglosiggio@gmail.com>
+Date: Fri, 6 Apr 2018 16:37:31 -0300
+Subject: fix optiboot bootloader makefile
+
+---
+ bootloaders/optiboot/Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/bootloaders/optiboot/Makefile b/bootloaders/optiboot/Makefile
+index f8d137d..75c8a17 100644
+--- a/bootloaders/optiboot/Makefile
++++ b/bootloaders/optiboot/Makefile
+@@ -107,7 +107,7 @@ STK500-1 = $(STK500) -e -d$(MCU_TARGET) -pf -vf -if$(PROGRAM)_$(TARGET).hex \
+ STK500-2 = $(STK500) -d$(MCU_TARGET) -ms -q -lCF -LCF -cUSB -I200kHz -s -wt
+ 
+ OBJ        = $(PROGRAM).o
+-OPTIMIZE = -Os -fno-inline-small-functions -fno-split-wide-types -mshort-calls
++OPTIMIZE = -Os -fno-inline-small-functions -fno-split-wide-types -mrelax
+ 
+ DEFS       = 
+ LIBS       =

@@ -17,6 +17,109 @@
 %:
 	dh $@
 
+override_dh_auto_build: bootloaders cores firmwares libraries variants
+	dh_auto_build
+
+bootloaders: atmega atmega8 bt \
+             caterina caterina-robot caterina-lilipad gemma \
+	     lilipad optiboot stk500v2
+	# bootloaders
+
+atmega:
+	cd bootloaders/atmega && make lilypad
+	cd bootloaders/atmega && make lilypad_resonator
+	cd bootloaders/atmega && make pro8
+	cd bootloaders/atmega && make pro16
+	cd bootloaders/atmega && make pro20
+	cd bootloaders/atmega && make diecimila
+	cd bootloaders/atmega && make ng
+	cd bootloaders/atmega && make atmega328
+	cd bootloaders/atmega && make atmega328_notp
+	cd bootloaders/atmega && make atmega328_pro8
+	cd bootloaders/atmega && make mega
+
+# TODO: fix makefile
+atmega8:
+	cd bootloaders/atmega8 && \
+	make
+
+bt:
+	cd bootloaders/bt && \
+	make atmega328_bt
+
+caterina:
+	# make fails because the LUFA source is missing
+	#cd bootloaders/caterina && \
+	#make
+
+caterina-robot:
+	# make fails because the LUFA source is missing
+	#cd bootloaders/caterina-Arduino_Robot && \
+	#make
+
+caterina-lilipad:
+	# make fails because the LUFA source is missing
+	#cd bootloaders/caterina-LilyPadUSB && \
+	#make
+
+gemma:
+	# Sourcecode is elsewere, see bootloaders/gemma/README.md
+
+lilipad:
+	cd bootloaders/lilypad/src && \
+	make lily
+
+# NOTE: atmega88 doesn't build, i've removed the target
+optiboot:
+	cd bootloaders/optiboot && make pro20
+	cd bootloaders/optiboot && make pro16
+	cd bootloaders/optiboot && make atmega168
+	cd bootloaders/optiboot && make atmega328
+	cd bootloaders/optiboot && make sanguino
+	cd bootloaders/optiboot && make mega
+	cd bootloaders/optiboot && make atmega8
+	#cd bootloaders/optiboot && make atmega88 # atmega88 doesn't build
+	cd bootloaders/optiboot && make lilypad
+	cd bootloaders/optiboot && make lilypad_resonator
+	cd bootloaders/optiboot && make pro8
+	cd bootloaders/optiboot && make atmega328_pro8
+	cd bootloaders/optiboot && make luminet
+
+stk500v2:
+	cd bootloaders/stk500v2 && make mega1280
+	cd bootloaders/stk500v2 && make mega2560
+	cd bootloaders/stk500v2 && make amber128
+	cd bootloaders/stk500v2 && make m2561
+	cd bootloaders/stk500v2 && make cerebot
+	cd bootloaders/stk500v2 && make penguino
+
+cores:
+	# cores
+
+firmwares:
+	# firmwares
+
+libraries:
+	# libraries
+
+variants:
+	# variants
+
+override_dh_auto_clean:
+	# Clean bootloaders
+	cd bootloaders/atmega           && make clean
+	cd bootloaders/atmega8          && make clean
+	cd bootloaders/bt               && make clean
+	# caterina doesn't build because the LUFA headers are missing
+	#cd bootloaders/caterina         && make clean
+	#cd bootloaders/caterina-robot   && make clean
+	#cd bootloaders/caterina-lilipad && make clean
+	# the sourcecode is elsewere
+	#cd bootloaders/gemma
+	cd bootloaders/lilypad/src      && make clean
+	cd bootloaders/optiboot         && make clean
+	cd bootloaders/stk500v2         && make clean
+	dh_auto_clean
 
 # dh_make generated override targets
 # This is example for Cmake (See https://bugs.debian.org/641051 )

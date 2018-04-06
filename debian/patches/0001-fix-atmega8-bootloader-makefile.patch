@@ -1,0 +1,36 @@
+From: Ignacio Losiggio <iglosiggio@gmail.com>
+Date: Fri, 6 Apr 2018 16:02:27 -0300
+Subject: fix atmega8 bootloader makefile
+
+---
+ bootloaders/atmega8/Makefile | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/bootloaders/atmega8/Makefile b/bootloaders/atmega8/Makefile
+index 9202b52..635059e 100644
+--- a/bootloaders/atmega8/Makefile
++++ b/bootloaders/atmega8/Makefile
+@@ -10,11 +10,11 @@ PRODUCT=atmega8
+ ISPPARAMS  = -dprog=stk500 -dserial=$(SERIAL) -dspeed=115200
+ 
+ 
+-#DIRAVR = /usr/local/avr
+-DIRAVRBIN = $(DIRAVR)/bin
++DIRAVR = /usr
++DIRAVRBIN = /usr/bin
+ DIRAVRUTILS = $(DIRAVR)/utils/bin
+-DIRINC = $(DIRAVR)/include
+-DIRLIB = $(DIRAVR)/avr/lib
++DIRINC = /usr/lib/avr/include
++DIRLIB = /usr/lib/avr
+ 
+ 
+ MCU_TARGET = atmega8
+@@ -56,6 +56,7 @@ clean:
+ 	rm -rf *.s
+ 	rm -rf *.o *.elf
+ 	rm -rf *.lst *.map
++	rm -rf *.bin *.srec *.hex
+ 
+ asm: $(PROGRAM).s
+ 
