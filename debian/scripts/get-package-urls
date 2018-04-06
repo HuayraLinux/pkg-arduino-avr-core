@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# 1. Download the JSON
+curl http://downloads.arduino.cc/packages/package_index.json 2>/dev/null |
+# 2. Get the urls
+grep "url" |
+# 3. Generate usable HTML for uscan
+awk -F\" '{ printf("<a href=\"%s\">\n\t%s\n</a>\n", $4, $4) }'

@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+# 1. Find in all directories (except top-level hidden files)
+find * |
+# 2. Escape spaces in filenames
+sed "s/ /\\\ /g" |
+# 3. For each file get its filetype
+xargs file |
+# 3. Cut the filename and unneeded spaces
+cut -d: -f2 | sed "s/^ *//g" |
+# 4. Sort and filter
+sort | uniq
+
+# Example output:
+#
+#	$ debian/scripts/get-filetypes
+#	ASCII text
+#	ASCII text, with CRLF line terminators
+#	ASCII text, with no line terminators
+#	ASCII text, with very long lines
+#	assembler source, ASCII text
+#	Bourne-Again shell script, ASCII text executable
+#	C source, ASCII text
+#	C++ source, ASCII text
+#	C source, ASCII text, with CRLF line terminators
+#	C++ source, ASCII text, with CRLF line terminators
+#	directory
+#	ISO-8859 text, with CRLF line terminators
+#	LaTeX document, ASCII text
+#	makefile script, ASCII text
+#	PDF document, version 1.3
+#	PDF document, version 1.5
+#	POSIX shell script, ASCII text executable
+#	UTF-8 Unicode text
+#	UTF-8 Unicode (with BOM) text
+#	XML 1.0 document, ASCII text
+#	XML 1.0 document, ASCII text, with very long lines
+#	XML 1.0 document, UTF-8 Unicode (with BOM) text

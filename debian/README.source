@@ -1,0 +1,23 @@
+arduino-avr-core for Debian
+--------------------------
+
+Notes for the sourcecode of this package:
+
+1. The url [1] for getting version information is a JSON (and because of that
+   isn't usable for a watchfile). You can look at debian/scripts/get-package-urls
+   if you want to make a fakeupstream-like [2] hack.
+
+2. The upstream source has LOTS of binary files and it needs to be repacked
+   (and the makefiles patched and the binaries rebuilt).
+   debian/scripts/remove-binaries was designated for this task, if you are
+   unsure if a given repack has binaries a quick & diry solution is the
+   debian/scripts/get-filetypes script (note that ASCII representations of
+   code, such as arduino .hex files might be missed by this script).
+
+3. It's possible that arduino doesn't even use half the things it ships.
+
+[1] http://downloads.arduino.cc/packages/package_index.json
+[2] https://qa.debian.org/cgi-bin/fakeupstream.cgi
+
+ -- Ignacio Losiggio <iglosiggio@dc.uba.ar>  Fri, 06 Apr 2018 14:04:23 -0300
+

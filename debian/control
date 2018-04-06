@@ -1,0 +1,14 @@
+Source: arduino-avr-core
+Section: electronics
+Priority: optional
+Maintainer: Ignacio Losiggio <alumno@unknown>
+Build-Depends: debhelper (>= 9), avr-gcc
+Standards-Version: 3.9.8
+Homepage: https://arduino.cc
+#Vcs-Git: https://anonscm.debian.org/collab-maint/arduino-avr-core.git
+#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/arduino-avr-core.git
+
+Package: arduino-avr-core
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, avr-gcc, avr-libc, avrdude 
+Description: Arduino core for the AVR boards

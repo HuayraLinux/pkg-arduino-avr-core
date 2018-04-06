@@ -1,0 +1,5 @@
+arduino-avr-core (1.6.21-1) unstable; urgency=medium
+
+  * Initial release (Closes: #nnnn)
+
+ -- Ignacio Losiggio <iglosiggio@dc.uba.ar>  Fri, 06 Apr 2018 12:11:52 -0300
