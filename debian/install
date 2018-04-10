@@ -1,0 +1,23 @@
+# Bootloaders
+bootloaders/atmega/*.hex                	/usr/share/arduino-hardware/arduino/avr/bootloaders/atmega
+bootloaders/atmega8/*.hex               	/usr/share/arduino-hardware/arduino/avr/bootloaders/atmega8
+bootloaders/bt/*.hex                    	/usr/share/arduino-hardware/arduino/avr/bootloaders/bt
+bootloaders/caterina/*.hex              	/usr/share/arduino-hardware/arduino/avr/bootloaders/caterina
+bootloaders/caterina-Arduino_Robot/*.hex	/usr/share/arduino-hardware/arduino/avr/bootloaders/caterina-Arduino_Robot
+bootloaders/caterina-LilyPadUSB/*.hex   	/usr/share/arduino-hardware/arduino/avr/bootloaders/caterina-LilyPadUSB
+bootloaders/gemma/*.hex                 	/usr/share/arduino-hardware/arduino/avr/bootloaders/gemma
+bootloaders/lilypad/src/.hex            	/usr/share/arduino-hardware/arduino/avr/bootloaders/lilypad
+bootloaders/optiboot/*.hex              	/usr/share/arduino-hardware/arduino/avr/bootloaders/optiboot
+bootloaders/stk500v2/*.hex              	/usr/share/arduino-hardware/arduino/avr/bootloaders/stk500v2
+
+# Cores
+cores	/usr/share/arduino-hardware/arduino/avr/cores
+
+# Firmwares
+#firmwares	/usr/share/arduino-hardware/arduino/avr/firmwares
+
+# Libraries
+libraries	/usr/share/arduino-hardware/arduino/avr/libraries
+
+# Variants
+variants	/usr/share/arduino-hardware/arduino/avr/variants
