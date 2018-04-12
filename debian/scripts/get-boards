@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-cat boards.txt | grep hex$ | sed 's/^[^=]*=//g' | sort
+cat boards.txt | grep hex$ | sed 's/^[^=]*=//g' | sort | uniq
