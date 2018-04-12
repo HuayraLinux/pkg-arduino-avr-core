@@ -1,0 +1,49 @@
+From: Ignacio Losiggio <iglosiggio@gmail.com>
+Date: Thu, 12 Apr 2018 16:52:04 -0300
+Subject: fix bootloaders LUFA paths
+
+---
+ bootloaders/caterina-Arduino_Robot/Makefile | 2 +-
+ bootloaders/caterina-LilyPadUSB/Makefile    | 2 +-
+ bootloaders/caterina/Makefile               | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/bootloaders/caterina-Arduino_Robot/Makefile b/bootloaders/caterina-Arduino_Robot/Makefile
+index af9990e..ebc4cd0 100644
+--- a/bootloaders/caterina-Arduino_Robot/Makefile
++++ b/bootloaders/caterina-Arduino_Robot/Makefile
+@@ -131,7 +131,7 @@ OBJDIR = .
+ 
+ 
+ # Path to the LUFA library
+-LUFA_PATH = LUFA-111009
++LUFA_PATH = ../../lufa111009
+ 
+ 
+ # LUFA library compile-time options and predefined tokens
+diff --git a/bootloaders/caterina-LilyPadUSB/Makefile b/bootloaders/caterina-LilyPadUSB/Makefile
+index 8443e14..2d4c790 100644
+--- a/bootloaders/caterina-LilyPadUSB/Makefile
++++ b/bootloaders/caterina-LilyPadUSB/Makefile
+@@ -120,7 +120,7 @@ OBJDIR = .
+ 
+ 
+ # Path to the LUFA library
+-LUFA_PATH = LUFA-111009
++LUFA_PATH = ../../lufa111009
+ 
+ 
+ # LUFA library compile-time options and predefined tokens
+diff --git a/bootloaders/caterina/Makefile b/bootloaders/caterina/Makefile
+index b3bd9e8..26f7b41 100644
+--- a/bootloaders/caterina/Makefile
++++ b/bootloaders/caterina/Makefile
+@@ -127,7 +127,7 @@ OBJDIR = .
+ 
+ 
+ # Path to the LUFA library
+-LUFA_PATH = ../../../../../../LUFA/LUFA-111009
++LUFA_PATH = ../../lufa111009
+ 
+ 
+ # LUFA library compile-time options and predefined tokens

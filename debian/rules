@@ -21,7 +21,7 @@ override_dh_auto_build: bootloaders cores firmwares libraries variants
 	dh_auto_build
 
 bootloaders: atmega atmega8 bt \
-             caterina caterina-robot caterina-lilipad gemma \
+             caterina caterina-robot caterina-lilypad gemma \
 	     lilipad optiboot stk500v2
 	# bootloaders
 
@@ -48,19 +48,16 @@ bt:
 	make atmega328_bt
 
 caterina:
-	# make fails because the LUFA source is missing
-	#cd bootloaders/caterina && \
-	#make
+	cd bootloaders/caterina && make VID=0x2341 PID=0x0036 Caterina-Leonardo.hex clean
+	cd bootloaders/caterina && make VID=0x2341 PID=0x0037 Caterina-Micro.hex    clean
+	cd bootloaders/caterina && make VID=0x2341 PID=0x003C Caterina-Esplora.hex  clean
 
 caterina-robot:
-	# make fails because the LUFA source is missing
-	#cd bootloaders/caterina-Arduino_Robot && \
-	#make
+	cd bootloaders/caterina-Arduino_Robot && make VID=0x2341 PID=0x0038 Caterina-Robot-Control.hex clean
+	cd bootloaders/caterina-Arduino_Robot && make VID=0x2341 PID=0x0039 Caterina-Robot-Motor.hex   clean
 
-caterina-lilipad:
-	# make fails because the LUFA source is missing
-	#cd bootloaders/caterina-LilyPadUSB && \
-	#make
+caterina-lilypad:
+	cd bootloaders/caterina-LilyPadUSB && make Caterina-LilyPadUSB.hex clean
 
 gemma:
 	# Sourcecode is elsewere, see bootloaders/gemma/README.md
@@ -68,6 +65,7 @@ gemma:
 lilipad:
 	cd bootloaders/lilypad/src && \
 	make lily
+	mv bootloaders/lilypad/src/ATmegaBOOT_168.hex bootloaders/lilypad/LilyPadBOOT_168.hex
 
 # NOTE: atmega88 doesn't build, i've removed the target
 optiboot:
@@ -107,22 +105,19 @@ variants:
 
 override_dh_auto_clean:
 	# Clean bootloaders
-	cd bootloaders/atmega           && make clean
-	cd bootloaders/atmega8          && make clean
-	cd bootloaders/bt               && make clean
-	# caterina doesn't build because the LUFA headers are missing
-	#cd bootloaders/caterina         && make clean
-	#cd bootloaders/caterina-robot   && make clean
-	#cd bootloaders/caterina-lilipad && make clean
+	cd bootloaders/atmega                 && make clean
+	cd bootloaders/atmega8                && make clean
+	cd bootloaders/bt                     && make clean
+	cd bootloaders/caterina               && make clean \
+	&& rm Caterina-Leonardo.hex Caterina-Micro.hex Caterina-Esplora.hex
+	cd bootloaders/caterina-Arduino_Robot && make clean \
+	&& rm Caterina-Robot-Control.hex Caterina-Robot-Motor.hex
+	cd bootloaders/caterina-LilyPadUSB    && make clean \
+	&& rm Caterina-LilyPadUSB.hex
 	# the sourcecode is elsewere
 	#cd bootloaders/gemma
-	cd bootloaders/lilypad/src      && make clean
-	cd bootloaders/optiboot         && make clean
-	cd bootloaders/stk500v2         && make clean
+	cd bootloaders/lilypad/src            && make clean \
+	&& rm ../LilyPadBOOT_168.hex
+	cd bootloaders/optiboot               && make clean
+	cd bootloaders/stk500v2               && make clean
 	dh_auto_clean
-
-# dh_make generated override targets
-# This is example for Cmake (See https://bugs.debian.org/641051 )
-#override_dh_auto_configure:
-#	dh_auto_configure -- #	-DCMAKE_LIBRARY_PATH=$(DEB_HOST_MULTIARCH)
-
