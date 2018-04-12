@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-find . -iname "*.elf" -delete
-find . -iname "*.hex" -delete
-find . -iname "*.a"   -delete
-find . -iname "*.lst" -delete
+find . \( -iname "*.elf" -or -iname "*.hex" -or \
+          -iname "*.a"   -or -iname "*.lst" -or \
+          -iname "*.dll" -or -iname "*.o"   -or \
+          -iname "*.so" \) -delete
