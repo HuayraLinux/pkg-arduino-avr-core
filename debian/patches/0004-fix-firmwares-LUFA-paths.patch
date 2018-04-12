@@ -1,0 +1,35 @@
+From: Ignacio Losiggio <iglosiggio@gmail.com>
+Date: Thu, 12 Apr 2018 17:24:18 -0300
+Subject: fix firmwares LUFA paths
+
+---
+ firmwares/atmegaxxu2/arduino-usbdfu/makefile    | 2 +-
+ firmwares/atmegaxxu2/arduino-usbserial/makefile | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/firmwares/atmegaxxu2/arduino-usbdfu/makefile b/firmwares/atmegaxxu2/arduino-usbdfu/makefile
+index 1fb4ed3..803d3ea 100644
+--- a/firmwares/atmegaxxu2/arduino-usbdfu/makefile
++++ b/firmwares/atmegaxxu2/arduino-usbdfu/makefile
+@@ -116,7 +116,7 @@ OBJDIR = .
+ 
+ 
+ # Path to the LUFA library
+-LUFA_PATH = ../..
++LUFA_PATH = ../../../lufa100807
+ 
+ 
+ # LUFA library compile-time options and predefined tokens
+diff --git a/firmwares/atmegaxxu2/arduino-usbserial/makefile b/firmwares/atmegaxxu2/arduino-usbserial/makefile
+index 79d6be2..bd500fc 100644
+--- a/firmwares/atmegaxxu2/arduino-usbserial/makefile
++++ b/firmwares/atmegaxxu2/arduino-usbserial/makefile
+@@ -123,7 +123,7 @@ OBJDIR = .
+ 
+ 
+ # Path to the LUFA library
+-LUFA_PATH = ../..
++LUFA_PATH = ../../../lufa100807
+ 
+ 
+ # LUFA library compile-time options
