@@ -3,4 +3,5 @@
 find . \( -iname "*.elf" -or -iname "*.hex" -or \
           -iname "*.a"   -or -iname "*.lst" -or \
           -iname "*.dll" -or -iname "*.o"   -or \
-          -iname "*.so" \) -delete
+          -iname "*.so"  -or -iname "*.bin" -or \
+          -iname "*.srec" \) -delete

@@ -1,4 +1,4 @@
-arduino-avr-core (1.6.21-1) unstable; urgency=medium
+arduino-avr-core (1.6.21+dfsg.2-1) unstable; urgency=medium
 
   * Initial release (Closes: #nnnn)
 

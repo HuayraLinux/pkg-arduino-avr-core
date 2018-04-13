@@ -18,7 +18,6 @@
 	dh $@
 
 override_dh_auto_build: bootloaders cores firmwares libraries variants
-	dh_auto_build
 
 bootloaders: atmega atmega8 bt \
              caterina caterina-robot caterina-lilypad gemma \
@@ -109,15 +108,20 @@ override_dh_auto_clean:
 	cd bootloaders/atmega8                && make clean
 	cd bootloaders/bt                     && make clean
 	cd bootloaders/caterina               && make clean \
-	&& rm Caterina-Leonardo.hex Caterina-Micro.hex Caterina-Esplora.hex
+	&& rm -f Caterina-Leonardo.hex Caterina-Micro.hex Caterina-Esplora.hex
 	cd bootloaders/caterina-Arduino_Robot && make clean \
-	&& rm Caterina-Robot-Control.hex Caterina-Robot-Motor.hex
+	&& rm -f Caterina-Robot-Control.hex Caterina-Robot-Motor.hex
 	cd bootloaders/caterina-LilyPadUSB    && make clean \
-	&& rm Caterina-LilyPadUSB.hex
+	&& rm -f Caterina-LilyPadUSB.hex
 	# the sourcecode is elsewere
 	#cd bootloaders/gemma
 	cd bootloaders/lilypad/src            && make clean \
-	&& rm ../LilyPadBOOT_168.hex
+	&& rm -f ../LilyPadBOOT_168.hex
 	cd bootloaders/optiboot               && make clean
 	cd bootloaders/stk500v2               && make clean
 	dh_auto_clean
+
+override_dh_install:
+	# Thanks lintian
+	chmod -x bootloaders/atmega/Makefile
+	dh_install -X.o -X.elf -X.lst -X.bin -X.srec
