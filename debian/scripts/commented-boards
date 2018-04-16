@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+grep '^#.*hex' boards.txt | sed 's/[^=]*=//g' | sort

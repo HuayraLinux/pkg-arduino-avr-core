@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+find . -iname '*.hex' | sed 's/.\/bootloaders\///g' | sort
