@@ -2,3 +2,5 @@
 0002-fix-optiboot-bootloader-makefile.patch
 0003-fix-bootloaders-LUFA-paths.patch
 0004-fix-firmwares-LUFA-paths.patch
+0005-Use-system-paths-avrdude-and-avr-gcc.patch
+0006-Don-t-provide-difficult-to-build-bootloaders.patch

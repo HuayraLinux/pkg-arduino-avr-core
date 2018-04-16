@@ -1,0 +1,43 @@
+From: Ignacio Losiggio <iglosiggio@gmail.com>
+Date: Mon, 16 Apr 2018 12:20:06 -0300
+Subject: Use system paths avrdude and avr-gcc
+
+---
+ platform.txt | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/platform.txt b/platform.txt
+index 16c25b1..8626d2d 100644
+--- a/platform.txt
++++ b/platform.txt
+@@ -5,7 +5,7 @@
+ # For more info:
+ # https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification
+ 
+-name=Arduino AVR Boards
++name=Debian Arduino AVR Boards
+ version=1.6.21
+ 
+ # AVR compile variables
+@@ -18,7 +18,7 @@ compiler.warning_flags.more=-Wall
+ compiler.warning_flags.all=-Wall -Wextra
+ 
+ # Default "compiler.path" is correct, change only if you want to override the initial value
+-compiler.path={runtime.tools.avr-gcc.path}/bin/
++compiler.path=/usr/bin/
+ compiler.c.cmd=avr-gcc
+ compiler.c.flags=-c -g -Os {compiler.warning_flags} -std=gnu11 -ffunction-sections -fdata-sections -MMD -flto -fno-fat-lto-objects
+ compiler.c.elf.flags={compiler.warning_flags} -Os -g -flto -fuse-linker-plugin -Wl,--gc-sections
+@@ -91,9 +91,9 @@ recipe.preproc.macros="{compiler.path}{compiler.cpp.cmd}" {compiler.cpp.flags} {
+ # AVR Uploader/Programmers tools
+ # ------------------------------
+ 
+-tools.avrdude.path={runtime.tools.avrdude.path}
+-tools.avrdude.cmd.path={path}/bin/avrdude
+-tools.avrdude.config.path={path}/etc/avrdude.conf
++tools.avrdude.path=/
++tools.avrdude.cmd.path=/usr/bin/avrdude
++tools.avrdude.config.path=/etc/avrdude.conf
+ 
+ tools.avrdude.network_cmd={runtime.tools.arduinoOTA.path}/bin/arduinoOTA
+ 
