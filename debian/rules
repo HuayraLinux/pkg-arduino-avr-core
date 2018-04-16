@@ -43,8 +43,8 @@ atmega8:
 	make
 
 bt:
-	cd bootloaders/bt && \
-	make atmega328_bt
+	cd bootloaders/bt && make atmega328_bt
+	cd bootloaders/bt && make AVR_FREQ=16000000L ATmegaBOOT_168.hex
 
 caterina:
 	cd bootloaders/caterina && make VID=0x2341 PID=0x0036 Caterina-Leonardo.hex clean
