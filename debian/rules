@@ -122,6 +122,4 @@ override_dh_auto_clean:
 	dh_auto_clean
 
 override_dh_install:
-	# Thanks lintian
-	chmod -x bootloaders/atmega/Makefile
 	dh_install -X.o -X.elf -X.lst -X.bin -X.srec

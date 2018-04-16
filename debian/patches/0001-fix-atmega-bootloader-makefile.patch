@@ -1,0 +1,12 @@
+From: Ignacio Losiggio <iglosiggio@gmail.com>
+Date: Mon, 16 Apr 2018 15:53:20 -0300
+Subject: fix atmega bootloader makefile
+
+---
+ bootloaders/atmega/Makefile | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ mode change 100755 => 100644 bootloaders/atmega/Makefile
+
+diff --git a/bootloaders/atmega/Makefile b/bootloaders/atmega/Makefile
+old mode 100755
+new mode 100644
